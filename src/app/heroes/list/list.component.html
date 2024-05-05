@@ -1,0 +1,35 @@
+<h3>Listado de comic español</h3>
+
+<ul class="mt-2 list-group">
+  <li class="list-group-item" >Superlopez</li>
+  <li class="list-group-item" >Mortadelo</li>
+  <li class="list-group-item" >Filemon</li>
+  <li class="list-group-item" >Rompetechos</li>
+  <li class="list-group-item" >Pepe Gotera</li>
+  <li class="list-group-item" >Otilio</li>
+</ul>
+
+
+<h3>Listado de comic americano</h3>
+
+<ul class="mt-2 list-group">
+  <li class="list-group-item"
+    *ngFor="let name of usaNames" >
+    {{ name }}
+  </li>
+</ul>
+
+<h3 *ngIf="deletedHero; else nothingDeleted">Heroe borrado
+  <small class="text-danger">{{deletedHero}}</small>
+</h3>
+
+<ng-template #nothingDeleted>
+  Nada borrado
+</ng-template>
+
+<button
+  *ngIf="usaNames.length !== 0"
+  class="btn btn-outline-danger"
+  (click) ="deleteHero()">
+  Borrar último
+</button>
